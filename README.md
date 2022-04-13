@@ -119,3 +119,4 @@ python code/run.py \
 
 # Citations
 
+The paper was accepted at LERC22. Citations coming up soon!
