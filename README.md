@@ -25,7 +25,97 @@ The top 10 templates account for half of the samples. The table below shows the 
 | (N0 / N1) - N2 | 123 |
 | (N0 - N1) + N2 | 80 |
 
+# ArMATH Solver
+
+## Installation
+
+* clone this directory
+* install [`aravec`](https://github.com/bakrianoo/aravec#download) and [`fasttext`](https://fasttext.cc/docs/en/crawl-vectors.html#models) models, extract them in word2vec
+
+* install dependencies
+
+```bash
+conda env create -f environment.yml
+```
+
+
+
+## Training
+
+To train the Chinese model (to be used in transfer learning):
+
+```bash
+conda activate armath
+python code/run.py \
+		--output-dir "results/chinese_model" \
+    	--n-workers $CPUS_PER_GPU \
+        --batch-size $BATCH_SIZE \
+        --embedding-size $EMBEDDING \
+        --data-path datasets/chinese/Math_23K.json
+```
+
+To train the Arabic model: no transfer learning, one-hot encoding:
+
+```bash
+conda activate armath
+python code/run.py \
+		--output-dir "results/one-hot" \
+    	--n-workers $CPUS_PER_GPU \
+        --batch-size $BATCH_SIZE \
+        --embedding-size $EMBEDDING \
+        --data-path datasets/armath \
+        --arabic
+```
+
+To train the Arabic model with no transfer learning, `aravec` embedding [for `fasttext`, replace `aravec` with `fasttext`]:
+
+```bash
+conda activate armath
+python code/run.py \
+		--output-dir "results/aravec" \
+    	--n-workers $CPUS_PER_GPU \
+        --batch-size $BATCH_SIZE \
+        --embedding-size $EMBEDDING \
+        --data-path datasets/armath \
+        --embedding-type aravec \
+        --embedding-model-name $PATH_TO_EMBEDDING \
+        --arabic
+```
+
+For transfer learning:
+
+```bash
+conda activate armath
+python code/run.py \
+		--output-dir "results/aravec" \
+    	--n-workers $CPUS_PER_GPU \
+        --batch-size $BATCH_SIZE \
+        --embedding-size $EMBEDDING \
+        --data-path data/ArMATH \
+        --embedding-type "arvec" \
+        --embedding-model-name $PATH_TO_EMBEDDING \
+        --arabic \
+        --transfer-learning \
+        --transfer-learning-model $PATH_TO_CONFIG_FILE \
+        --transfer-learning-transfer-encoder \
+        --transfer-learning-transfer-decoder
+        
+```
+
+
+
+## Evaluation
+
+To evaluate a model:
+
+```bash
+conda activate armath
+python code/run.py \
+        --config-path $PATH_TO_CONFIG_FILE \
+        --evaluate
+```
+
+
 
 # Citations
 
-comping up soon!

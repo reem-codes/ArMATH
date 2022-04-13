@@ -1,0 +1,19 @@
+name: armath
+channels:
+  - nvidia
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - gensim
+  - pytorch=1.9.0
+  - cudatoolkit=11.1.74
+  - torchtext
+  - tqdm
+  - transformers
+  - pip
+  - pip:
+    - arabic-reshaper
+    - farasapy
+    - fasttext
+    - pyarabic

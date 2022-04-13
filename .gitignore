@@ -1,0 +1,6 @@
+*.pyc
+.ipynb_checkpoints
+.virtual_documents
+.idea
+__pycache__
+word2vec
