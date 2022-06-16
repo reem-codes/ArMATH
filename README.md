@@ -1,5 +1,7 @@
 # ArMATH dataset
 
+[paper](http://www.lrec-conf.org/proceedings/lrec2022/pdf/2022.lrec-1.37.pdf)
+
 this dataset is the first large-scale dataset for solving Arabic Math Word Problem. There are 6000 samples and 883 templates. A template is an equation once the variables have been replaced with ordered placeholders. 
 
 For the ease of use and uniform evaluation across future work, the dataset was randomly split into 5 folds; 1,200 samples in each. 
@@ -119,4 +121,16 @@ python code/run.py \
 
 # Citations
 
-The paper was accepted at LERC22. Citations coming up soon!
+```@InProceedings{alghamdi-liang-zhang:2022:LREC,
+  author    = {Alghamdi, Reem  and  Liang, Zhenwen  and  Zhang, Xiangliang},
+  title     = {ArMATH: a Dataset for Solving Arabic Math Word Problems},
+  booktitle      = {Proceedings of the Language Resources and Evaluation Conference},
+  month          = {June},
+  year           = {2022},
+  address        = {Marseille, France},
+  publisher      = {European Language Resources Association},
+  pages     = {351--362},
+  abstract  = {This paper studies solving Arabic Math Word Problems by deep learning. A Math Word Problem (MWP) is a text description of a mathematical problem that can be solved by deriving a math equation to reach the answer. Effective models have been developed for solving MWPs in English and Chinese. However, Arabic MWPs are rarely studied. This paper contributes the first large-scale dataset for Arabic MWPs, which contains 6,000 samples of primary-school math problems, written in Modern Standard Arabic (MSA). Arabic MWP solvers are then built with deep learning models and evaluated on this dataset. In addition, a transfer learning model is built to let the high-resource Chinese MWP solver promote the performance of the low-resource Arabic MWP solver. This work is the first to use deep learning methods to solve Arabic MWP and the first to use transfer learning to solve MWP across different languages. The transfer learning enhanced solver has an accuracy of 74.15\%, which is 3\% higher than the solver without using transfer learning. We make the dataset and solvers available in public for encouraging more research of Arabic MWPs: https://github.com/reem-codes/ArMATH},
+  url       = {https://aclanthology.org/2022.lrec-1.37}
+}```
+
